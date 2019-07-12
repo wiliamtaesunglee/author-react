@@ -1,26 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import AuthorQuiz from "./AuthorQuiz";
 import * as serviceWorker from "./serviceWorker";
 
-let model = { clicks: 0 };
+const authors = [
+  {
+    name: 'Mark Twain',
+    imageUrl: 'images/authors/marktwain.jpg',
+    imageSource: 'Wikimedia Comons',
+    books: ['The Adventures of Hucleberry Finn']
+  }
+];
 
-function render() {
-  ReactDOM.render(
-    <App
-      clicks={model.clicks}
-      onClick={() => {
-        model.clicks += 1;
-        render();
-      }}
-    />,
-    document.getElementById("root")
-  );
-}
-render();
+ReactDOM.render(
+  <AuthorQuiz />, document.getElementById('root')
+);
+registerServiceWorker();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
